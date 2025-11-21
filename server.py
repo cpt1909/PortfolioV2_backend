@@ -70,7 +70,9 @@ def cora_response(request: CoraRequest, _ = Depends(require_api_key)):
                 "system_instruction": instructions,
             },
         )
-    except:
+
+    except Exception as e:
+        print(type(e), e)
         @dataclass
         class Response:
             text: str
